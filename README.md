@@ -66,7 +66,9 @@ The dashboard presents descriptive country-level associations. It does not estab
 
 1. [Download the Power BI project archive](Beyond_Wealth_Power_BI_Project.rar) and extract it.
 2. Open the `.pbip` file using a recent version of Power BI Desktop.
-3. If Power Query requests the source location, select the included project data file.
+3. If Power Query requests the source location, set the `DataFolder` parameter to the extracted project's `data` folder.
+
+Preview the completed dashboard: [open the PDF](Beyond_Wealth_Dashboard.pdf).
 
 ## Author
 
