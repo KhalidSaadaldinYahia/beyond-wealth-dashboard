@@ -95,7 +95,7 @@ table HealthOutcomes
 		mode: import
 		source =
 				let
-					Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/KhalidSaadaldinYahia/beyond-wealth-dashboard/main/project/data/health_outcomes_long.csv"), [Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/KhalidSaadaldinYahia/beyond-wealth-dashboard/d06f94b0b7f02075d77e7f045207bfc37688dd0e/project/data/health_outcomes_long.csv"), [Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
 					PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 					Typed = Table.TransformColumnTypes(PromotedHeaders, {{"Country Name", type text}, {"Country Code", type text}, {"Year", Int64.Type}, {"life_expectancy", type number}, {"under5_mortality", type number}, {"gdp_per_capita", type number}, {"population", type number}, {"region", type text}})
 				in
