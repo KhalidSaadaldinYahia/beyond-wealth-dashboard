@@ -16,6 +16,18 @@ table HealthOutcomes
 		formatString: $#,0
 		lineageTag: c1027785-8eb7-44a3-aa95-0cc395c37c2e
 
+	/// Unweighted mean life expectancy of selected countries in the latest visible year
+	measure 'Latest-Year Life Expectancy' = VAR LatestVisibleYear = MAX(HealthOutcomes[Year]) RETURN CALCULATE([Average Life Expectancy], HealthOutcomes[Year] = LatestVisibleYear)
+		formatString: 0.0
+
+	/// Unweighted mean under-five mortality of selected countries in the latest visible year
+	measure 'Latest-Year Under-5 Mortality' = VAR LatestVisibleYear = MAX(HealthOutcomes[Year]) RETURN CALCULATE([Average Under-5 Mortality], HealthOutcomes[Year] = LatestVisibleYear)
+		formatString: 0.0
+
+	/// Unweighted mean GDP per capita of selected countries in the latest visible year
+	measure 'Latest-Year GDP per Capita' = VAR LatestVisibleYear = MAX(HealthOutcomes[Year]) RETURN CALCULATE([Average GDP per Capita], HealthOutcomes[Year] = LatestVisibleYear)
+		formatString: $#,0
+
 	/// Population in the latest visible year, counted once per selected country
 	measure 'Total Population' = VAR LatestVisibleYear = MAX(HealthOutcomes[Year]) RETURN CALCULATE(SUM(HealthOutcomes[Population]), HealthOutcomes[Year] = LatestVisibleYear)
 		formatString: #,0

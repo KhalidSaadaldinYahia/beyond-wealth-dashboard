@@ -23,11 +23,11 @@
                       "Entity": "HealthOutcomes"
                     }
                   },
-                  "Property": "Average Life Expectancy"
+                  "Property": "Latest-Year Life Expectancy"
                 }
               },
-              "queryRef": "HealthOutcomes.Average Life Expectancy",
-              "nativeQueryRef": "Average Life Expectancy"
+              "queryRef": "HealthOutcomes.Latest-Year Life Expectancy",
+              "nativeQueryRef": "Latest-Year Life Expectancy"
             }
           ]
         }
@@ -180,7 +180,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'LIFE EXPECTANCY · YEARS'"
+                  "Value": "'LATEST-YEAR LIFE · YEARS'"
                 }
               }
             },

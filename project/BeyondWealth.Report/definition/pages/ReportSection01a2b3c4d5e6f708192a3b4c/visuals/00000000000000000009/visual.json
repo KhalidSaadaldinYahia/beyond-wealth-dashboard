@@ -23,11 +23,11 @@
                       "Entity": "HealthOutcomes"
                     }
                   },
-                  "Property": "Average Under-5 Mortality"
+                  "Property": "Latest-Year Under-5 Mortality"
                 }
               },
-              "queryRef": "HealthOutcomes.Average Under-5 Mortality",
-              "nativeQueryRef": "Average Under-5 Mortality"
+              "queryRef": "HealthOutcomes.Latest-Year Under-5 Mortality",
+              "nativeQueryRef": "Latest-Year Under-5 Mortality"
             }
           ]
         }
@@ -180,7 +180,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'UNDER-5 DEATHS · PER 1K'"
+                  "Value": "'LATEST-YEAR UNDER-5 · PER 1K'"
                 }
               }
             },

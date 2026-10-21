@@ -180,7 +180,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'POPULATION REPRESENTED'"
+                  "Value": "'LATEST-YEAR POPULATION'"
                 }
               }
             },

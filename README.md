@@ -15,7 +15,7 @@ The dashboard combines World Bank development indicators for 13 countries from 2
 
 ### Executive Overview
 
-Headline measures, long-term health trends, geographic filters, and country rankings provide a fast summary of global health performance.
+Headline measures use the latest visible year for all four KPIs; long-term health trends, geographic filters, and country rankings provide historical context.
 
 ### Wealth vs Outcomes
 
@@ -31,9 +31,9 @@ Indicator definitions, data coverage, calculation logic, assumptions, and limita
 
 ## Measures
 
-- Average life expectancy at birth
-- Average under-five mortality per 1,000 live births
-- Average GDP per capita in current US dollars
+- Average life expectancy at birth (latest visible year on the executive card)
+- Average under-five mortality per 1,000 live births (latest visible year on the executive card)
+- Average GDP per capita in current US dollars (latest visible year on the executive card)
 - Population represented in the latest visible year, counting each selected country once
 - Latest reporting year
 - Health-efficiency and gap-to-best measures
@@ -64,7 +64,7 @@ The packaged [`project/data/health_outcomes_long.csv`](project/data/health_outco
 
 The dashboard presents descriptive country-level associations. It does not establish that income causes health outcomes, and national averages can conceal differences within countries. GDP per capita is shown in current US dollars and is not adjusted for purchasing-power parity.
 
-The **Health Efficiency Index** is a project-specific arithmetic ratio: mean life expectancy in years divided by the natural logarithm of mean GDP per capita in current US dollars, under the current filters. It is not a standard health-system efficiency measure. Because the denominator is a log of a currency amount, rankings depend on the currency unit and period; interpret it only as an exploratory within-dashboard comparison, never as a causal or cross-study efficiency estimate. The population card uses the maximum visible year, so multi-year selections show one year's stock rather than a sum of annual stocks.
+The **Health Efficiency Index** is a project-specific arithmetic ratio: mean life expectancy in years divided by the natural logarithm of mean GDP per capita in current US dollars, under the current filters. It is not a standard health-system efficiency measure. Because the denominator is a log of a currency amount, rankings depend on the currency unit and period; interpret it only as an exploratory within-dashboard comparison, never as a causal or cross-study efficiency estimate. All four executive cards now use the maximum visible year. Life expectancy, under-five mortality and GDP per capita are unweighted means across the selected countries in that year; population is summed once per country. Historical charts retain their year-by-year context.
 
 
 ## Author

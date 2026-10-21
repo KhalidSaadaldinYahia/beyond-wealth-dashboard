@@ -23,11 +23,11 @@
                       "Entity": "HealthOutcomes"
                     }
                   },
-                  "Property": "Average GDP per Capita"
+                  "Property": "Latest-Year GDP per Capita"
                 }
               },
-              "queryRef": "HealthOutcomes.Average GDP per Capita",
-              "nativeQueryRef": "Average GDP per Capita"
+              "queryRef": "HealthOutcomes.Latest-Year GDP per Capita",
+              "nativeQueryRef": "Latest-Year GDP per Capita"
             }
           ]
         }
@@ -180,7 +180,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'GDP PER CAPITA · USD'"
+                  "Value": "'LATEST-YEAR GDP/CAPITA · USD'"
                 }
               }
             },
