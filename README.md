@@ -34,7 +34,7 @@ Indicator definitions, data coverage, calculation logic, assumptions, and limita
 - Average life expectancy at birth
 - Average under-five mortality per 1,000 live births
 - Average GDP per capita in current US dollars
-- Population represented
+- Population represented in the latest visible year, counting each selected country once
 - Latest reporting year
 - Health-efficiency and gap-to-best measures
 
@@ -58,9 +58,13 @@ World Bank World Development Indicators:
 
 Coverage: 13 selected countries, 2000–2024.
 
+The packaged [`project/data/health_outcomes_long.csv`](project/data/health_outcomes_long.csv) is the country-year analytical snapshot. It joins the four listed indicator series by country code and year for the selected 13 countries. The exact original API request URLs, extraction date, and transformation script were not retained; the indicator pages above identify the source series but cannot recreate the identical historical file after publisher revisions.
+
 ## Limitations
 
 The dashboard presents descriptive country-level associations. It does not establish that income causes health outcomes, and national averages can conceal differences within countries. GDP per capita is shown in current US dollars and is not adjusted for purchasing-power parity.
+
+The **Health Efficiency Index** is a project-specific arithmetic ratio: mean life expectancy in years divided by the natural logarithm of mean GDP per capita in current US dollars, under the current filters. It is not a standard health-system efficiency measure. Because the denominator is a log of a currency amount, rankings depend on the currency unit and period; interpret it only as an exploratory within-dashboard comparison, never as a causal or cross-study efficiency estimate. The population card uses the maximum visible year, so multi-year selections show one year's stock rather than a sum of annual stocks.
 
 
 ## Author

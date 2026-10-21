@@ -3,10 +3,10 @@
   "name": "00000000000000000019",
   "position": {
     "x": 30.236452974693766,
-    "y": 330.71120441071309,
+    "y": 330.7112044107131,
     "z": 1026,
-    "height": 359.05787907448848,
-    "width": 789.92733396387462,
+    "height": 359.0578790744885,
+    "width": 789.9273339638746,
     "tabOrder": 1026
   },
   "visual": {
@@ -82,7 +82,7 @@
                 }
               },
               "queryRef": "HealthOutcomes.Total Population",
-              "nativeQueryRef": "Total Population"
+              "nativeQueryRef": "Population (latest visible year)"
             }
           ]
         },

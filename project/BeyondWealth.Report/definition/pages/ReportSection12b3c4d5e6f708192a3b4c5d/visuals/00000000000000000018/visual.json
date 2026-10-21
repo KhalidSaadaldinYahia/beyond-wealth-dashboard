@@ -27,7 +27,7 @@
                 }
               },
               "queryRef": "HealthOutcomes.Total Population",
-              "nativeQueryRef": "Total Population"
+              "nativeQueryRef": "Population (latest visible year)"
             }
           ]
         }

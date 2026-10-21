@@ -27,7 +27,7 @@
                 }
               },
               "queryRef": "HealthOutcomes.Health Efficiency Index",
-              "nativeQueryRef": "Health Efficiency Index"
+              "nativeQueryRef": "Life expectancy / ln(GDP per capita)"
             }
           ]
         }
@@ -180,7 +180,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'HEALTH EFFICIENCY INDEX'"
+                  "Value": "'LIFE EXPECTANCY / LN(GDP PER CAPITA)'"
                 }
               }
             },
