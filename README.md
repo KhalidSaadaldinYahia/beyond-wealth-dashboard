@@ -36,7 +36,7 @@ Indicator definitions, data coverage, calculation logic, assumptions, and limita
 - Average GDP per capita in current US dollars (latest visible year on the executive card)
 - Population represented in the latest visible year, counting each selected country once
 - Latest reporting year
-- Health-efficiency and gap-to-best measures
+- Exploratory life-expectancy/income ratio and gap-to-best measures
 
 ## Design and development
 
