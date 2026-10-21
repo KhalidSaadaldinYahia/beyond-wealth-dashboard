@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "BeyondWealth"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "779947ae-da43-4df0-9796-958b8bf96c22"
+  }
+}

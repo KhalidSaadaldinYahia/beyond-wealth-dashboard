@@ -1,0 +1,102 @@
+table HealthOutcomes
+	lineageTag: c5e6fc5f-e57f-459a-8cbc-7cd68151a1aa
+
+	/// Average life expectancy in years under the current filter context
+	measure 'Average Life Expectancy' = AVERAGE(HealthOutcomes[Life Expectancy])
+		formatString: 0.0
+		lineageTag: 7511013a-4ed4-4acc-8576-8d79fcb311b9
+
+	/// Average deaths before age five per 1,000 live births
+	measure 'Average Under-5 Mortality' = AVERAGE(HealthOutcomes[Under-5 Mortality])
+		formatString: 0.0
+		lineageTag: 3a6bc154-dff8-4dd8-ac83-89df323ae93e
+
+	/// Average GDP per person in current US dollars
+	measure 'Average GDP per Capita' = AVERAGE(HealthOutcomes[GDP per Capita])
+		formatString: $#,0
+		lineageTag: c1027785-8eb7-44a3-aa95-0cc395c37c2e
+
+	/// Population in the latest visible year, counted once per selected country
+	measure 'Total Population' = VAR LatestVisibleYear = MAX(HealthOutcomes[Year]) RETURN CALCULATE(SUM(HealthOutcomes[Population]), HealthOutcomes[Year] = LatestVisibleYear)
+		formatString: #,0
+		lineageTag: 66ad2057-d0ac-4645-b2ca-a07eb5706960
+
+	/// Number of countries in the current filter context
+	measure 'Country Count' = DISTINCTCOUNT(HealthOutcomes[Country Code])
+		formatString: 0
+		lineageTag: c52d047d-3b8a-4486-9770-e09f6b3e74dc
+
+	/// Latest year in the current filter context
+	measure 'Latest Year' = MAX(HealthOutcomes[Year])
+		formatString: 0
+		lineageTag: 945204cf-e993-4c9d-b6a2-8e80ab9e910d
+
+	/// Life expectancy delivered per logarithmic unit of GDP per capita
+	measure 'Health Efficiency Index' = DIVIDE([Average Life Expectancy], LN([Average GDP per Capita]))
+		formatString: 0.00
+		lineageTag: 3b9a9755-91b4-422a-a247-2ee313c30f32
+
+	/// Difference from the strongest life expectancy in the selected comparison set
+	measure 'Gap to Best' = MAXX(ALLSELECTED(HealthOutcomes[Country]), [Average Life Expectancy]) - [Average Life Expectancy]
+		formatString: 0.0
+		lineageTag: 4f0ddeac-06fd-4657-9712-0b4b87642d0c
+
+	column Country
+		dataType: string
+		lineageTag: 6dbcbbcc-7b9d-4802-a5b0-9719e3329dd2
+		sourceColumn: Country Name
+
+	column 'Country Code'
+		dataType: string
+		lineageTag: a9fadf51-8b5c-48e9-85b8-e1d2177009e9
+		sourceColumn: Country Code
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: a2f50662-581a-4c09-960f-5821547ea735
+		summarizeBy: none
+		sourceColumn: Year
+
+	column 'Life Expectancy'
+		dataType: double
+		formatString: 0.0
+		lineageTag: 78ca52cd-8ced-4cef-b454-e96aabce224a
+		summarizeBy: average
+		sourceColumn: life_expectancy
+
+	column 'Under-5 Mortality'
+		dataType: double
+		formatString: 0.0
+		lineageTag: e5168c7c-2358-4d5d-bce8-0577f5a52549
+		summarizeBy: average
+		sourceColumn: under5_mortality
+
+	column 'GDP per Capita'
+		dataType: double
+		formatString: $#,0
+		lineageTag: 1d9b8675-7aac-4738-b8fb-e660464bb1e0
+		summarizeBy: average
+		sourceColumn: gdp_per_capita
+
+	column Population
+		dataType: double
+		formatString: #,0
+		lineageTag: a6a53f05-9b82-4410-85a0-01988e9dd1af
+		summarizeBy: sum
+		sourceColumn: population
+
+	column Region
+		dataType: string
+		lineageTag: fd4a4a70-f325-4a6a-b93a-d62277ea196e
+		sourceColumn: region
+
+	partition HealthOutcomes = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/KhalidSaadaldinYahia/beyond-wealth-dashboard/main/project/data/health_outcomes_long.csv"), [Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(PromotedHeaders, {{"Country Name", type text}, {"Country Code", type text}, {"Year", Int64.Type}, {"life_expectancy", type number}, {"under5_mortality", type number}, {"gdp_per_capita", type number}, {"population", type number}, {"region", type text}})
+				in
+					Typed
