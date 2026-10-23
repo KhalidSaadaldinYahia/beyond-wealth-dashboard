@@ -1,5 +1,9 @@
 # Beyond Wealth
 
+## Download the complete project
+
+**To open this project:** [download the complete repository ZIP](https://github.com/KhalidSaadaldinYahia/beyond-wealth-dashboard/archive/refs/heads/main.zip), extract it, and open `project/BeyondWealth.pbip` in Power BI Desktop. Keep the `.Report`, `.SemanticModel`, and `data` folders beside the `.pbip` file. **Downloading the `.pbip` file alone will not produce a working report.** The included CSVs are the inspectable data snapshot; the model refreshes from a fixed online copy of those CSVs by default. The PDF is a static preview.
+
 An interactive Power BI analysis of how national prosperity relates to life expectancy and under-five mortality across selected economies.
 
 The dashboard combines World Bank development indicators for 13 countries from 2000 to 2024. It is designed to show where higher income aligns with stronger health outcomes—and where the relationship breaks down.
